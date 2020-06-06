@@ -1,10 +1,7 @@
 from django.contrib import admin
-from django.urls import path
-from app.views import TodoViewSet
+from django.urls import path,include
 
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register(r'', TodoViewSet)
-
-urlpatterns = router.urls
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('app.urls')),
+]
